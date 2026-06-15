@@ -79,6 +79,30 @@
       if (this.y > canvas.height + 20) this.reset();
     }
   }
+  const music = document.getElementById('bg-music');
+const btn = document.getElementById('music-btn');
+
+// start as unmuted icon
+btn.textContent = '🔇';
+
+document.addEventListener('DOMContentLoaded', () => {
+  music.play().catch(() => {
+    document.body.addEventListener('click', () => {
+      music.play();
+      btn.textContent = '🔊';
+    }, { once: true });
+  });
+});
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    btn.textContent = '🔊';
+  } else {
+    music.pause();
+    btn.textContent = '🔇';
+  }
+}
 
   const petals = Array.from({ length: 35 }, () => new Petal());
 
