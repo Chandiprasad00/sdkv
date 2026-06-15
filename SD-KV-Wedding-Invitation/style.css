@@ -1,0 +1,407 @@
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ivory: #FDF6F0;
+      --blush: #F2C4CE;
+      --blush-dark: #E8A0B0;
+      --sage: #B5C9B7;
+      --gold: #C9973A;
+      --gold-light: #E8C97A;
+      --text: #5C4A3A;
+      --text-light: #8B7355;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--ivory);
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* PETALS CANVAS */
+    #petals-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #bg-photo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;        /* change this value */
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* MAIN WRAPPER */
+    .invitation {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 0 60px;
+    }
+
+    /* HEADER BLOOM */
+    .header {
+      text-align: center;
+      padding: 60px 30px 40px;
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, transparent, var(--blush-dark));
+      margin: 0 auto 20px;
+    }
+
+    .together-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .love {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    /* MANDALA DIVIDER */
+    .mandala {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 30px;
+      animation: spin-slow 20s linear infinite;
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* NAMES */
+    .names-block {
+      text-align: center;
+      padding: 0 20px 40px;
+    }
+
+    .bride-name, .groom-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 9vw, 52px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: 1px;
+      color: var(--text);
+      animation: fadeUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .bride-name { animation-delay: 0.3s; }
+    .groom-name { animation-delay: 0.6s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ampersand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 7vw, 40px);
+      font-style: italic;
+      color: var(--blush-dark);
+      display: block;
+      margin: 8px 0;
+      animation: fadeUp 1s ease 0.5s forwards;
+      opacity: 0;
+    }
+
+    .surname {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* THIN DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 0 40px;
+      margin: 10px 0 30px;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--blush-dark), transparent);
+    }
+
+    .divider-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* DATE BLOCK */
+    .date-block {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #fff9f5, #fdf0f4);
+      margin: 0 24px;
+      border-radius: 2px;
+      border: 1px solid var(--blush);
+      position: relative;
+      animation: fadeUp 1s ease 0.9s forwards;
+      opacity: 0;
+    }
+
+    .date-block::before, .date-block::after {
+      content: '✦';
+      position: absolute;
+      top: -10px;
+      font-size: 18px;
+      color: var(--gold);
+      background: var(--ivory);
+      padding: 0 8px;
+    }
+    .date-block::before { left: 20px; }
+    .date-block::after { right: 20px; }
+
+    .date-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .date-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 7vw, 38px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .date-day {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    /* COUNTDOWN */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .count-item {
+      text-align: center;
+    }
+
+    .count-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+
+    .count-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .count-sep {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--blush-dark);
+      align-self: center;
+      padding-bottom: 12px;
+    }
+
+    /* VENUE BLOCK */
+    .venue-block {
+      text-align: center;
+      padding: 40px 30px;
+      animation: fadeUp 1s ease 1.1s forwards;
+      opacity: 0;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .venue-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 5vw, 26px);
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .venue-address {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .map-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 28px;
+      border: 1px solid var(--gold);
+      border-radius: 30px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .map-btn:hover {
+      background: var(--gold);
+      color: white;
+    }
+
+    /* EVENTS TIMELINE */
+    .events-section {
+      padding: 20px 30px 40px;
+      animation: fadeUp 1s ease 1.3s forwards;
+      opacity: 0;
+    }
+
+    .events-section .section-eyebrow {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .event-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+
+    .event-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--blush-dark);
+      margin-top: 5px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .event-dot::after {
+      content: '';
+      position: absolute;
+      top: 10px; left: 4px;
+      width: 1px; height: 30px;
+      background: var(--blush);
+    }
+
+    .event-item:last-child .event-dot::after { display: none; }
+
+    .event-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text);
+      display: block;
+    }
+
+    .event-time {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 1px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 30px 20px 20px;
+      animation: fadeUp 1s ease 1.5s forwards;
+      opacity: 0;
+    }
+
+    .footer-msg {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-families {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      line-height: 2;
+    }
+
+    .footer::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--blush-dark), transparent);
+      margin: 20px auto 0;
+    }
+
+    /* FLORAL CORNERS — pure CSS */
+    .corner-decoration {
+      position: fixed;
+      width: 120px; height: 120px;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .corner-tl { top: 0; left: 0; }
+    .corner-tr { top: 0; right: 0; transform: scaleX(-1); }
+    .corner-bl { bottom: 0; left: 0; transform: scaleY(-1); }
+    .corner-br { bottom: 0; right: 0; transform: scale(-1); }

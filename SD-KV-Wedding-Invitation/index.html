@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sri Durga & Vamshi Wedding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<canvas id="petals-canvas"></canvas>
+
+<!-- Corner decorations (SVG roses) -->
+<svg class="corner-decoration corner-tl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10,10 Q40,5 50,30 Q60,5 90,10 Q85,40 60,50 Q85,60 90,90 Q60,85 50,60 Q40,85 10,90 Q15,60 40,50 Q15,40 10,10Z" fill="#E8A0B0"/>
+  <circle cx="50" cy="50" r="8" fill="#C9973A"/>
+  <path d="M5,5 L20,20 M50,5 L50,20 M95,5 L80,20" stroke="#B5C9B7" stroke-width="1.5"/>
+</svg>
+<svg class="corner-decoration corner-tr" viewBox="0 0 120 120" fill="none">
+  <path d="M10,10 Q40,5 50,30 Q60,5 90,10 Q85,40 60,50 Q85,60 90,90 Q60,85 50,60 Q40,85 10,90 Q15,60 40,50 Q15,40 10,10Z" fill="#E8A0B0"/>
+  <circle cx="50" cy="50" r="8" fill="#C9973A"/>
+</svg>
+<svg class="corner-decoration corner-bl" viewBox="0 0 120 120" fill="none">
+  <path d="M10,10 Q40,5 50,30 Q60,5 90,10 Q85,40 60,50 Q85,60 90,90 Q60,85 50,60 Q40,85 10,90 Q15,60 40,50 Q15,40 10,10Z" fill="#E8A0B0"/>
+  <circle cx="50" cy="50" r="8" fill="#C9973A"/>
+</svg>
+<svg class="corner-decoration corner-br" viewBox="0 0 120 120" fill="none">
+  <path d="M10,10 Q40,5 50,30 Q60,5 90,10 Q85,40 60,50 Q85,60 90,90 Q60,85 50,60 Q40,85 10,90 Q15,60 40,50 Q15,40 10,10Z" fill="#E8A0B0"/>
+  <circle cx="50" cy="50" r="8" fill="#C9973A"/>
+</svg>
+
+<div class="invitation">
+
+  <!-- HEADER -->
+  <div class="header">
+    <p class="together-text">Together with their families</p>
+    <p class="love">With joy & love, we invite you</p>
+
+    <!-- Mandala SVG -->
+    <svg class="mandala" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="38" stroke="#E8A0B0" stroke-width="0.8" stroke-dasharray="4 3"/>
+      <circle cx="40" cy="40" r="30" stroke="#C9973A" stroke-width="0.6" stroke-dasharray="2 4"/>
+      <circle cx="40" cy="40" r="20" stroke="#B5C9B7" stroke-width="0.8"/>
+      <circle cx="40" cy="40" r="5" fill="#C9973A" opacity="0.6"/>
+      <g stroke="#E8A0B0" stroke-width="0.8">
+        <line x1="40" y1="2" x2="40" y2="18"/>
+        <line x1="40" y1="62" x2="40" y2="78"/>
+        <line x1="2" y1="40" x2="18" y2="40"/>
+        <line x1="62" y1="40" x2="78" y2="40"/>
+        <line x1="12" y1="12" x2="23" y2="23"/>
+        <line x1="57" y1="57" x2="68" y2="68"/>
+        <line x1="68" y1="12" x2="57" y2="23"/>
+        <line x1="23" y1="57" x2="12" y2="68"/>
+      </g>
+      <g fill="#C9973A" opacity="0.7">
+        <circle cx="40" cy="10" r="2"/>
+        <circle cx="40" cy="70" r="2"/>
+        <circle cx="10" cy="40" r="2"/>
+        <circle cx="70" cy="40" r="2"/>
+        <circle cx="17" cy="17" r="1.5"/>
+        <circle cx="63" cy="17" r="1.5"/>
+        <circle cx="17" cy="63" r="1.5"/>
+        <circle cx="63" cy="63" r="1.5"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- NAMES -->
+  <div class="names-block">
+    <div class="bride-name">
+      Sri Durga
+      <span class="surname">Kulkarni</span>
+    </div>
+    <span class="ampersand">&</span>
+    <div class="groom-name">
+      Vamshi
+      <span class="surname">Kulkarni</span>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- DATE -->
+  <div class="date-block">
+    <p class="date-label">Wedding Day</p>
+    <p class="date-main">3rd July 2026</p>
+    <p class="date-day">Friday</p>
+
+    <div class="divider" style="margin: 16px 0 20px;">
+      <div class="divider-line"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <p class="date-label">Counting down</p>
+    <div class="countdown">
+      <div class="count-item">
+        <span class="count-num" id="cd-days">--</span>
+        <span class="count-label">Days</span>
+      </div>
+      <span class="count-sep">·</span>
+      <div class="count-item">
+        <span class="count-num" id="cd-hours">--</span>
+        <span class="count-label">Hours</span>
+      </div>
+      <span class="count-sep">·</span>
+      <div class="count-item">
+        <span class="count-num" id="cd-mins">--</span>
+        <span class="count-label">Mins</span>
+      </div>
+      <span class="count-sep">·</span>
+      <div class="count-item">
+        <span class="count-num" id="cd-secs">--</span>
+        <span class="count-label">Secs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider" style="margin-top: 30px;">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- VENUE -->
+  <div class="venue-block">
+    <p class="section-eyebrow">Venue</p>
+    <p class="venue-name">Multipurpose Function Hall</p>
+    <p class="venue-address">
+      Dulapally, Hyderabad<br>
+      Telangana, India
+    </p>
+    <a class="map-btn" href="https://maps.app.goo.gl/vissu8fkiHokGjV5A" target="_blank">
+      📍 View on Map
+    </a>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- EVENTS -->
+  <div class="events-section">
+    <p class="section-eyebrow">Celebrations</p>
+
+    <div class="event-item">
+      <div class="event-dot"></div>
+      <div>
+        <span class="event-name">Haldi & Mehendi</span>
+        <span class="event-time">1st July 2026 · Evening</span>
+      </div>
+    </div>
+
+    <div class="event-item">
+      <div class="event-dot"></div>
+      <div>
+        <span class="event-name">Wedding Ceremony</span>
+        <span class="event-time">3rd July 2026 · Morning</span>
+      </div>
+    </div>
+
+    <div class="event-item">
+      <div class="event-dot"></div>
+      <div>
+        <span class="event-name">Vratham</span>
+        <span class="event-time">5th July 2026 · Evening</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="footer-msg">
+      "Two souls, one heart.<br>
+      Your presence will make this day<br>
+      truly complete."
+    </p>
+    <p class="footer-families">
+      Kulkarni Family<br>
+      Warmly invites you
+    </p>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
