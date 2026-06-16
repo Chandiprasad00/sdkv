@@ -1,0 +1,468 @@
+/* ===== RESET & ROOT ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --magenta: #C0185A;
+  --magenta-dark: #8B0E3E;
+  --gold: #C49A22;
+  --gold-light: #F0C94A;
+  --dark: #1A0A0F;
+  --dark-2: #2E1520;
+  --white: #FFFFFF;
+  --off-white: #FDF8F2;
+  --card-bg: #FFFFFF;
+  --text-dark: #1A0A0F;
+  --text-mid: #3D1A28;
+  --text-light: #6B3A4E;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--off-white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ===== PETAL CANVAS ===== */
+#petals-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ===== MUSIC BUTTON ===== */
+#music-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--magenta);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(192, 24, 90, 0.3);
+  transition: transform 0.2s ease;
+}
+
+#music-btn:active {
+  transform: scale(0.92);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-img-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: opacity 0.1s linear;
+}
+
+/* Dark gradient overlay — bottom heavy so names are readable */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 10, 15, 0.05) 0%,
+    rgba(26, 10, 15, 0.1) 40%,
+    rgba(26, 10, 15, 0.75) 70%,
+    rgba(26, 10, 15, 0.92) 100%
+  );
+}
+
+/* HERO TEXT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px 24px;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.hero-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.hero-bride,
+.hero-groom {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(44px, 12vw, 72px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.05;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  letter-spacing: -0.5px;
+}
+
+.hero-amp {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 7vw, 44px);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1;
+  margin: 4px 0;
+}
+
+.hero-surname {
+  font-size: 13px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.hero-date-pill {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1.5px solid var(--gold-light);
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+}
+
+/* SCROLL HINT */
+.scroll-hint {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 16px 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.scroll-hint span {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid rgba(255,255,255,0.5);
+  border-bottom: 2px solid rgba(255,255,255,0.5);
+  transform: rotate(45deg);
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(5px); }
+}
+
+/* ===== CARDS WRAPPER ===== */
+.cards-wrapper {
+  padding: 32px 16px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== CARD BASE ===== */
+.card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow:
+    0 4px 24px rgba(26, 10, 15, 0.10),
+    0 1px 4px rgba(26, 10, 15, 0.06);
+  border: 1px solid rgba(192, 24, 90, 0.08);
+}
+
+.card-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--magenta);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 7vw, 38px);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.card-body {
+  font-size: 17px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+}
+
+.count-item {
+  flex: 1;
+  text-align: center;
+  background: var(--dark);
+  border-radius: 14px;
+  padding: 16px 8px;
+}
+
+.count-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 8vw, 42px);
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.count-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.count-sep {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--magenta);
+  padding-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* ===== MAP BUTTON ===== */
+.map-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--magenta);
+  color: var(--white);
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 16px rgba(192, 24, 90, 0.35);
+}
+
+.map-btn:active {
+  background: var(--magenta-dark);
+  transform: scale(0.97);
+}
+
+/* ===== EVENTS ===== */
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.event-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.event-icon {
+  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  background: var(--off-white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.event-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.event-date {
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.event-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(192,24,90,0.2), transparent);
+}
+
+/* ===== FOOTER CARD ===== */
+.card-footer {
+  background: var(--dark);
+  text-align: center;
+  border: none;
+}
+
+.footer-mandala {
+  font-size: 32px;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.footer-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 5vw, 26px);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.footer-family {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.footer-invite {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 1px;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE — TABLET ===== */
+@media (min-width: 600px) {
+  .cards-wrapper {
+    padding: 40px 24px 80px;
+    gap: 24px;
+  }
+
+  .card {
+    padding: 40px 36px;
+  }
+
+  .hero-content {
+    padding: 0 40px 32px;
+  }
+}
+
+/* ===== RESPONSIVE — DESKTOP ===== */
+@media (min-width: 1024px) {
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 0 48px;
+  }
+
+  .cards-wrapper {
+    padding: 48px 0 100px;
+    gap: 28px;
+  }
+
+  .card {
+    padding: 48px 48px;
+  }
+
+  .countdown {
+    gap: 12px;
+  }
+
+  .count-item {
+    padding: 20px 12px;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .scroll-arrow {
+    animation: none;
+  }
+}

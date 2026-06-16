@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Sri Durga & Vamshi Wedding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- MUSIC BUTTON -->
+  <button id="music-btn" onclick="toggleMusic()">🔇</button>
+
+  <!-- AUDIO -->
+  <audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg"/>
+  </audio>
+
+  <!-- PETAL CANVAS -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="hero-img-wrap">
+      <img src="couple.jpg" alt="Sri Durga & Vamshi" class="hero-img" id="hero-img"/>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Together with their families</p>
+      <h1 class="hero-names">
+        <span class="hero-bride">Sri Durga</span>
+        <span class="hero-amp">&</span>
+        <span class="hero-groom">Vamshi</span>
+      </h1>
+      <p class="hero-surname">Kulkarni</p>
+      <div class="hero-date-pill">3rd July 2026 · Friday</div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===== CARDS SECTION ===== -->
+  <div class="cards-wrapper">
+
+    <!-- CARD 1 — COUNTDOWN -->
+    <div class="card reveal">
+      <p class="card-eyebrow">Counting Down To</p>
+      <h2 class="card-title">The Big Day</h2>
+      <div class="countdown">
+        <div class="count-item">
+          <span class="count-num" id="cd-days">--</span>
+          <span class="count-label">Days</span>
+        </div>
+        <div class="count-sep">:</div>
+        <div class="count-item">
+          <span class="count-num" id="cd-hours">--</span>
+          <span class="count-label">Hours</span>
+        </div>
+        <div class="count-sep">:</div>
+        <div class="count-item">
+          <span class="count-num" id="cd-mins">--</span>
+          <span class="count-label">Mins</span>
+        </div>
+        <div class="count-sep">:</div>
+        <div class="count-item">
+          <span class="count-num" id="cd-secs">--</span>
+          <span class="count-label">Secs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 — VENUE -->
+    <div class="card reveal">
+      <p class="card-eyebrow">Venue</p>
+      <h2 class="card-title">Dulapally Function Hall</h2>
+      <p class="card-body">Dulapally, Hyderabad<br/>Telangana, India</p>
+      <a class="map-btn" href="https://maps.google.com/?q=Dulapally+Function+Hall+Hyderabad" target="_blank">
+        📍 Open in Maps
+      </a>
+    </div>
+
+    <!-- CARD 3 — EVENTS -->
+    <div class="card reveal">
+      <p class="card-eyebrow">Celebrations</p>
+      <h2 class="card-title">Events</h2>
+
+      <div class="event-list">
+        <div class="event-row">
+          <div class="event-icon">🌿</div>
+          <div class="event-info">
+            <span class="event-name">Haldi & Mehendi</span>
+            <span class="event-date">1st July 2026 · Tuesday</span>
+          </div>
+        </div>
+
+        <div class="event-divider"></div>
+
+        <div class="event-row">
+          <div class="event-icon">💍</div>
+          <div class="event-info">
+            <span class="event-name">Wedding Ceremony</span>
+            <span class="event-date">3rd July 2026 · Friday</span>
+          </div>
+        </div>
+
+        <div class="event-divider"></div>
+
+        <div class="event-row">
+          <div class="event-icon">🪔</div>
+          <div class="event-info">
+            <span class="event-name">Vratham</span>
+            <span class="event-date">5th July 2026 · Sunday</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 — FOOTER -->
+    <div class="card card-footer reveal">
+      <div class="footer-mandala">✦</div>
+      <p class="footer-quote">
+        "Two souls united,<br/>one beautiful journey begins."
+      </p>
+      <p class="footer-family">— Kulkarni Family</p>
+      <p class="footer-invite">warmly invites you to celebrate with us</p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
